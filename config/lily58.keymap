@@ -9,6 +9,46 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        play_pause {
+            bindings = <&kp C_PLAY_PAUSE>;
+            key-positions = <42 43>;
+            layers = <0>;
+        };
+    };
+
+    macros {
+        Tilde: Tilde {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RA(RIGHT_BRACKET) &kp SPACE>;
+            label = "TILDE";
+        };
+
+        AcuteAccent: AcuteAccent {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp EQUAL &kp SPACE>;
+            label = "ACUTEACCENT";
+        };
+
+        BackTick: BackTick {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(EQUAL) &kp SPACE>;
+            label = "BACKTICK";
+        };
+
+        Caret: Caret {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(RIGHT_BRACKET) &kp SPACE>;
+            label = "CARET";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -22,60 +62,57 @@
 
             display-name = "Based";
             bindings = <
-&kp ESC    &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                         &kp N6  &kp N7    &kp N8     &kp N9   &kp N0    &kp GRAVE
-&kp TAB    &kp Q   &kp W   &kp E     &kp R     &kp T                          &kp Y   &kp U     &kp I      &kp O    &kp P     &kp MINUS
-&kp LCTRL  &kp A   &kp S   &kp D     &kp F     &kp G                          &kp H   &kp J     &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z   &kp X   &kp C     &kp V     &kp B   &kp LBKT     &kp RBKT  &kp N   &kp M     &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
-                           &kp LALT  &kp LGUI  &mo 1   &kp SPACE    &kp RET   &mo 2   &kp BSPC  &kp RGUI
+&kp ESC         &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                            &kp N6  &kp N7    &kp N8     &kp N9   &kp N0    &kp MINUS
+&kp TAB         &kp Q   &kp W   &kp E     &kp R     &kp T                             &kp Y   &kp U     &kp I      &kp O    &kp P     &kp LEFT_BRACKET
+&kp LEFT_SHIFT  &kp A   &kp S   &kp D     &kp F     &kp G                             &kp H   &kp J     &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LCTRL       &kp Z   &kp X   &kp C     &kp V     &kp B   &kp C_PREV    &kp C_NEXT  &kp N   &kp M     &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
+                                &kp LALT  &kp LGUI  &mo 1   &kp SPACE     &kp RET     &mo 2   &kp BSPC  &kp RGUI
             >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         lower_layer {
-            // ------------------------------------------------------------------------------------------------------------
-            // | BTCLR | BT1 | BT2 |  BT3 |  BT4 |  BT5 |                   |      |       |       |      |       |       |
-            // |  F1   |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  F7  |  F8   |  F9   |  F10 |  F11  |  F12  |
-            // |   `   |  !  |  @  |  #   |  $   |  %   |                   |  ^   |  &    |  *    |  (   |   )   |   ~   |
-            // |       |     |     |      |      |      |        |  |       |      |  _    |  +    |  {   |   }   |  "|"  |
-            //                     |      |      |      |        |  |       |      |       |       |
-
-            display-name = "Lower";
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &trans     &trans     &trans           &trans    &trans    &trans
-&kp F1      &kp F2        &kp F3        &kp F4        &kp F5        &kp F6                          &kp F7     &kp F8     &kp F9           &kp F10   &kp F11   &kp F12
-&kp GRAVE   &kp EXCL      &kp AT        &kp HASH      &kp DOLLAR    &kp PRCNT                       &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &kp TILDE
-&trans      &trans        &trans        &trans        &trans        &trans        &trans    &trans  &trans     &kp MINUS  &kp KP_PLUS      &kp LBRC  &kp RBRC  &kp PIPE
-                                        &trans        &trans        &trans        &trans    &trans  &trans     &trans     &trans
+&trans  &none                     &none       &none       &kp RA(N4)        &kp LS(N5)                                 &none   &kp KP_DIVIDE  &kp KP_MULTIPLY  &kp KP_MINUS  &none  &none
+&trans  &kp LS(MINUS)             &kp LS(N8)  &kp LS(N9)  &kp LS(NUMBER_2)  &none                                      &kp N7  &kp N8         &kp N9           &kp KP_PLUS   &none  &none
+&trans  &kp LS(NUMBER_1)          &kp RA(N7)  &kp RA(N0)  &kp BACKSLASH     &none                                      &kp N4  &kp N5         &kp N6           &none         &none  &none
+&trans  &kp RA(NON_US_BACKSLASH)  &kp LS(N8)  &kp LS(N9)  &Tilde            &none       &kp LS(N0)    &none            &kp N1  &kp N2         &kp N3           &none         &none  &none
+                                              &trans      &trans            &trans      &trans        &kp KP_NUMBER_0  &trans  &trans         &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            label = "lower";
         };
 
         raise_layer {
-            // ------------------------------------------------------------------------------------------------------------
-            // |       |     |     |      |      |      |                   |      |       |       |      |       |       |
-            // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |   7   |   8   |  9   |   0   |       |
-            // |   F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   |      |   <-  |   v   |  ^   |  ->   |       |
-            // |   F7  |  F8 |  F9 |  F10 |  F11 |  F12 |        |  |       |  +   |   -   |   =   |  [   |   ]   |   \   |
-            //                     |      |      |      |        |  |       |      |       |       |
-
-            display-name = "Raise";
             bindings = <
-&trans     &trans  &trans  &trans   &trans   &trans                     &trans       &trans     &trans     &trans    &trans     &trans
-&kp GRAVE  &kp N1  &kp N2  &kp N3   &kp N4   &kp N5                     &kp N6       &kp N7     &kp N8     &kp N9    &kp N0     &trans
-&kp F1     &kp F2  &kp F3  &kp F4   &kp F5   &kp F6                     &trans       &kp LEFT   &kp DOWN   &kp UP    &kp RIGHT  &trans
-&kp F7     &kp F8  &kp F9  &kp F10  &kp F11  &kp F12  &trans    &trans  &kp KP_PLUS  &kp MINUS  &kp EQUAL  &kp LBKT  &kp RBKT   &kp BSLH
-                           &trans   &trans   &trans   &trans    &trans  &trans       &trans     &trans
+&trans  &none             &BackTick             &AcuteAccent              &none             &none                     &none     &none          &none         &none      &none  &none
+&trans  &kp RA(NUMBER_2)  &kp NON_US_BACKSLASH  &kp LS(NON_US_BACKSLASH)  &kp RA(NUMBER_4)  &none                     &none     &kp PAGE_DOWN  &kp PAGE_UP   &none      &none  &none
+&trans  &kp LS(NUMBER_3)  &kp RA(MINUS)         &kp LS(NUMBER_7)          &kp LS(N5)        &none                     &kp LEFT  &kp DOWN       &kp UP_ARROW  &kp RIGHT  &none  &none
+&trans  &none             &kp LS(BACKSLASH)     &Caret                    &none             &none   &none     &none   &none     &none          &none         &none      &none  &trans
+                                                &trans                    &trans            &trans  &trans    &trans  &trans    &trans         &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            label = "raise";
         };
 
-        extra_1 { status = "reserved"; };
+        layer3 {
+            bindings = <
+&bt BT_PRV    &bt BT_NXT    &none         &none         &none  &bt BT_CLR                                     &none  &none  &none  &none  &none  &none
+&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 3  &bt BT_SEL 4  &none  &none                                          &none  &none  &none  &none  &none  &none
+&none         &none         &none         &none         &none  &none                                          &none  &none  &none  &none  &none  &none
+&none         &none         &none         &none         &none  &kp K_MUTE  &kp C_VOLUME_DOWN    &kp C_VOL_UP  &none  &none  &none  &none  &none  &none
+                                          &none         &none  &none       &none                &none         &none  &none  &none
+            >;
 
-        extra_2 { status = "reserved"; };
+            label = "layer3";
+        };
+    };
 
-        extra_3 { status = "reserved"; };
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        layer3 {
+            if-layers = <1 2>;
+            then-layer = <3>;
+        };
     };
 };
