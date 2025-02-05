@@ -9,15 +9,7 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
-    combos {
-        compatible = "zmk,combos";
-
-        play_pause {
-            bindings = <&kp C_PLAY_PAUSE>;
-            key-positions = <42 43>;
-            layers = <0>;
-        };
-    };
+    combos { compatible = "zmk,combos"; };
 
     macros {
         Tilde: Tilde {
@@ -62,21 +54,21 @@
 
             display-name = "Based";
             bindings = <
-&kp ESC         &kp N1  &kp N2  &kp N3         &kp N4    &kp N5                            &kp N6  &kp N7    &kp N8     &kp N9   &kp N0    &kp MINUS
-&kp TAB         &kp Q   &kp W   &kp E          &kp R     &kp T                             &kp Y   &kp U     &kp I      &kp O    &kp P     &kp LEFT_BRACKET
-&kp LEFT_SHIFT  &kp A   &kp S   &kp D          &kp F     &kp G                             &kp H   &kp J     &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LCTRL       &kp Z   &kp X   &kp C          &kp V     &kp B   &kp C_PREV    &kp C_NEXT  &kp N   &kp M     &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
-                                &kp RIGHT_ALT  &kp LGUI  &mo 1   &kp SPACE     &kp RET     &mo 2   &kp BSPC  &none
+&kp ESC         &kp N1  &kp N2  &kp N3         &kp N4  &kp N5                                &kp N6  &kp N7    &kp N8     &kp N9   &kp N0    &kp MINUS
+&kp TAB         &kp Q   &kp W   &kp E          &kp R   &kp T                                 &kp Y   &kp U     &kp I      &kp O    &kp P     &kp LEFT_BRACKET
+&kp LEFT_SHIFT  &kp A   &kp S   &kp D          &kp F   &kp G                                 &kp H   &kp J     &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LCTRL       &kp Z   &kp X   &kp C          &kp V   &kp B   &kp PAGE_DOWN    &kp PAGE_UP  &kp N   &kp M     &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
+                                &kp RIGHT_ALT  &mo 5   &mo 1   &kp SPACE        &kp RET      &mo 2   &kp BSPC  &mo 3
             >;
         };
 
         lower_layer {
             bindings = <
-&trans  &none                     &none       &none       &kp RA(N4)        &kp LS(N5)                                 &none   &kp KP_DIVIDE  &kp KP_MULTIPLY  &kp KP_MINUS  &none  &none
-&trans  &kp LS(MINUS)             &kp LS(N8)  &kp LS(N9)  &kp LS(NUMBER_2)  &none                                      &kp N7  &kp N8         &kp N9           &kp KP_PLUS   &none  &none
-&trans  &kp LS(NUMBER_1)          &kp RA(N7)  &kp RA(N0)  &kp BACKSLASH     &none                                      &kp N4  &kp N5         &kp N6           &none         &none  &none
-&trans  &kp RA(NON_US_BACKSLASH)  &kp LS(N8)  &kp LS(N9)  &Tilde            &none       &kp LS(N0)    &none            &kp N1  &kp N2         &kp N3           &none         &none  &none
-                                              &trans      &trans            &trans      &trans        &kp KP_NUMBER_0  &trans  &trans         &trans
+&trans  &none             &none       &none       &none             &none                                               &none             &none              &none       &none  &none  &none
+&trans  &kp LS(MINUS)     &kp LS(N8)  &kp LS(N9)  &kp LS(NUMBER_2)  &kp RA(NON_US_BACKSLASH)                            &kp LS(MINUS)     &kp LS(BACKSLASH)  &Caret      &none  &none  &none
+&trans  &kp LS(NUMBER_1)  &kp RA(N7)  &kp RA(N0)  &kp BACKSLASH     &Tilde                                              &kp LS(NUMBER_1)  &kp RA(N8)         &kp RA(N9)  &none  &none  &none
+&trans  &none             &none       &none       &Tilde            &none                     &kp LS(N0)    &kp LS(N0)  &none             &none              &none       &none  &none  &none
+                                      &trans      &trans            &trans                    &trans        &none       &trans            &trans             &trans
             >;
 
             label = "lower";
@@ -84,11 +76,11 @@
 
         raise_layer {
             bindings = <
-&trans  &none             &BackTick             &AcuteAccent              &none             &none                     &none     &none          &none         &none      &none  &none
-&trans  &kp RA(NUMBER_2)  &kp NON_US_BACKSLASH  &kp LS(NON_US_BACKSLASH)  &kp RA(NUMBER_4)  &none                     &none     &kp PAGE_DOWN  &kp PAGE_UP   &none      &none  &none
-&trans  &kp LS(NUMBER_3)  &kp RA(MINUS)         &kp LS(NUMBER_7)          &kp LS(N5)        &none                     &kp LEFT  &kp DOWN       &kp UP_ARROW  &kp RIGHT  &none  &none
-&trans  &none             &kp LS(BACKSLASH)     &Caret                    &none             &none   &none     &none   &none     &none          &none         &none      &none  &trans
-                                                &trans                    &trans            &trans  &trans    &trans  &trans    &trans         &trans
+&trans  &none  &BackTick             &AcuteAccent              &none             &none                               &none     &none     &none         &none      &none  &none
+&trans  &none  &kp NON_US_BACKSLASH  &kp LS(NON_US_BACKSLASH)  &kp RA(NUMBER_4)  &kp RA(NUMBER_2)                    &none     &none     &none         &none      &none  &none
+&trans  &none  &kp RA(MINUS)         &kp LS(NUMBER_7)          &kp LS(N5)        &kp LS(NUMBER_3)                    &kp LEFT  &kp DOWN  &kp UP_ARROW  &kp RIGHT  &none  &none
+&trans  &none  &none                 &none                     &none             &none             &none     &none   &none     &none     &none         &none      &none  &trans
+                                     &trans                    &trans            &trans            &trans    &trans  &trans    &trans    &trans
             >;
 
             label = "raise";
@@ -96,23 +88,47 @@
 
         layer3 {
             bindings = <
-&bt BT_PRV    &bt BT_NXT    &none         &none         &none  &bt BT_CLR                                     &none  &none  &none  &none  &none  &bootloader
-&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 3  &bt BT_SEL 4  &none  &none                                          &none  &none  &none  &none  &none  &none
-&none         &none         &none         &none         &none  &none                                          &none  &none  &none  &none  &none  &none
-&none         &none         &none         &none         &none  &kp K_MUTE  &kp C_VOLUME_DOWN    &kp C_VOL_UP  &none  &none  &none  &none  &none  &sys_reset
-                                          &none         &none  &none       &none                &none         &none  &none  &none
+&kp F1         &kp F2  &kp F3  &kp F4  &kp F5  &kp F6                                     &kp F7            &kp F8        &kp F9  &kp F10  &kp F11  &kp F12
+&none          &none   &none   &none   &none   &none                                      &none             &none         &none   &none    &none    &none
+&none          &none   &none   &none   &none   &none                                      &none             &none         &none   &none    &none    &none
+&kp LG(LS(S))  &none   &none   &none   &none   &kp K_MUTE  &kp C_VOLUME_UP    &kp C_NEXT  &kp C_PLAY_PAUSE  &none         &none   &none    &none    &kp LS(LC(ESC))
+                               &trans  &none   &none       &kp C_VOL_DN       &kp C_PREV  &none             &kp LEFT_GUI  &none
             >;
 
             label = "layer3";
+        };
+
+        keyboard_layer {
+            bindings = <
+&bt BT_CLR_ALL  &none       &none       &none  &none  &none                  &none  &none  &none  &none  &none  &bootloader
+&none           &none       &none       &none  &none  &none                  &none  &none  &none  &none  &none  &none
+&none           &none       &none       &none  &none  &none                  &none  &none  &none  &none  &none  &none
+&bt BT_PRV      &bt BT_NXT  &bt BT_CLR  &none  &none  &none  &none    &none  &none  &none  &none  &none  &none  &sys_reset
+                                        &none  &none  &none  &none    &none  &none  &none  &none
+            >;
+
+            label = "layer4";
+        };
+
+        numpad {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                    &kp K_CALC  &kp KP_SLASH  &kp KP_ASTERISK  &kp KP_MINUS  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &kp N7      &kp N8        &kp N9           &kp KP_PLUS   &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &kp N4      &kp N5        &kp N6           &kp KP_EQUAL  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp N1      &kp N2        &kp N3           &trans        &trans  &trans
+                        &trans  &trans  &trans  &trans    &kp N0  &trans      &trans        &trans
+            >;
+
+            label = "numpad";
         };
     };
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
 
-        layer3 {
+        Keyboard_settings {
             if-layers = <1 2>;
-            then-layer = <3>;
+            then-layer = <4>;
         };
     };
 };
