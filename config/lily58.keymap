@@ -64,11 +64,11 @@
 
         lower_layer {
             bindings = <
-&trans  &none             &none       &none       &none             &none                                               &none             &none              &none       &none  &none  &none
-&trans  &kp LS(MINUS)     &kp LS(N8)  &kp LS(N9)  &kp LS(NUMBER_2)  &kp RA(NON_US_BACKSLASH)                            &kp LS(MINUS)     &kp LS(BACKSLASH)  &Caret      &none  &none  &none
-&trans  &kp LS(NUMBER_1)  &kp RA(N7)  &kp RA(N0)  &kp BACKSLASH     &Tilde                                              &kp LS(NUMBER_1)  &kp RA(N8)         &kp RA(N9)  &none  &none  &none
-&trans  &none             &none       &none       &Tilde            &none                     &kp LS(N0)    &kp LS(N0)  &none             &none              &none       &none  &none  &none
-                                      &trans      &trans            &trans                    &trans        &none       &trans            &trans             &trans
+&trans  &none             &none       &none       &none             &none                                                     &none             &none              &none       &none  &none  &none
+&trans  &kp LS(MINUS)     &kp LS(N8)  &kp LS(N9)  &kp LS(NUMBER_2)  &kp RA(NON_US_BACKSLASH)                                  &kp LS(MINUS)     &kp LS(BACKSLASH)  &Caret      &none  &none  &none
+&trans  &kp LS(NUMBER_1)  &kp RA(N7)  &kp RA(N0)  &kp BACKSLASH     &Tilde                                                    &kp LS(NUMBER_1)  &kp RA(N8)         &kp RA(N9)  &none  &none  &none
+&trans  &none             &none       &none       &Tilde            &none                     &kp LS(NUMBER_6)    &kp LS(N0)  &none             &none              &none       &none  &none  &none
+                                      &trans      &trans            &trans                    &trans              &none       &trans            &trans             &trans
             >;
 
             label = "lower";
@@ -110,7 +110,7 @@
             label = "layer4";
         };
 
-        numpad {
+        misc {
             bindings = <
 &none      &none  &none  &none  &none  &none                   &kp K_CALCULATOR  &kp KP_SLASH  &kp KP_ASTERISK  &kp KP_MINUS  &none  &none
 &none      &none  &none  &none  &none  &none                   &kp N7            &kp N8        &kp N9           &kp KP_PLUS   &none  &none
@@ -119,7 +119,7 @@
                          &none  &none  &none  &none    &kp N0  &none             &trans        &none
             >;
 
-            label = "numpad";
+            label = "misc";
         };
     };
 
