@@ -76,11 +76,11 @@
 
         raise_layer {
             bindings = <
-&trans  &none  &BackTick             &AcuteAccent              &none             &none                                  &none       &none     &none         &none      &none  &none
-&trans  &none  &kp NON_US_BACKSLASH  &kp LS(NON_US_BACKSLASH)  &kp RA(NUMBER_4)  &kp RA(NUMBER_2)                       &kp INSERT  &none     &none         &none      &none  &none
-&trans  &none  &kp RA(MINUS)         &kp LS(NUMBER_7)          &kp LS(N5)        &kp LS(NUMBER_3)                       &kp LEFT    &kp DOWN  &kp UP_ARROW  &kp RIGHT  &none  &none
-&trans  &none  &none                 &none                     &none             &none             &kp HOME    &kp END  &kp DELETE  &none     &none         &none      &none  &trans
-                                     &trans                    &trans            &trans            &trans      &trans   &trans      &trans    &trans
+&trans  &none  &BackTick             &AcuteAccent              &none             &none                                  &none           &none     &none         &none      &none  &none
+&trans  &none  &kp NON_US_BACKSLASH  &kp LS(NON_US_BACKSLASH)  &kp RA(NUMBER_4)  &kp RA(NUMBER_2)                       &kp LS(INSERT)  &none     &none         &none      &none  &none
+&trans  &none  &kp RA(MINUS)         &kp LS(NUMBER_7)          &kp LS(N5)        &kp LS(NUMBER_3)                       &kp LEFT        &kp DOWN  &kp UP_ARROW  &kp RIGHT  &none  &none
+&trans  &none  &none                 &none                     &none             &none             &kp HOME    &kp END  &kp DELETE      &none     &none         &none      &none  &trans
+                                     &trans                    &trans            &trans            &trans      &trans   &trans          &trans    &trans
             >;
 
             label = "raise";
